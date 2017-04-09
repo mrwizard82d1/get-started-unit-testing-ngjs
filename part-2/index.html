@@ -1,0 +1,53 @@
+<html>
+	<head>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+	</head>	
+	<body>
+		<!--
+	        This `div` is controlled by the AngularJS controller, `CalculatorController`, that we create later in our
+			script.
+		-->
+		<div ng-controller="CalculatorController as vm">
+			<div><input ng-model="vm.x" type="number"/></div>
+			<div>
+				<input ng-model="vm.y" type="number"/>
+
+				<!--
+				The `ng-click` directive binds the button to the `sum` function on the controller.
+
+				P. S. Gotta' love "postscript" operators
+				-->
+				<input type="button" ng-click="vm.sum()" value="+"/>
+			</div>
+
+			<strong>= {{ vm.z }}</strong>
+		</div>		
+	</body>	
+	<script type="text/javascript" >
+
+	// Create the (root) application module (with no dependencies)
+	angular.module('calculatorApp', []);
+
+	// Create the controller (as in MVC) as a child of `calculatorApp`
+	angular.module('calculatorApp')
+		.controller('CalculatorController', function CalculatorController() {
+			var vm = this;
+			vm.x = 0;
+			vm.y = 0;
+			vm.z = 0;
+
+			vm.sum = function() {
+				vm.z = vm.x + vm.y;
+			};
+
+		});
+
+	// Load the element.
+	//
+	// This must be the alternative to putting the document under control of the `calculatorApp`.
+	angular.element(document).ready(function() {
+		angular.bootstrap(document, ['calculatorApp'])
+	});
+
+	</script>
+</html>
