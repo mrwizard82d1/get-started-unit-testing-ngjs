@@ -17,6 +17,9 @@ var calculator = {
 		return minuend - subtrahend;
 	},
 	div: function(dividend, divisor) {
+		if (divisor == 0) {
+			return 0;
+		}
 		return dividend / divisor;
 	}
 };
@@ -45,6 +48,12 @@ describe('calculator', function() {
 		it('should divide 9 by 3 correctly', function() {
 			expect(calculator.div(9, 3)).toBe(3);
 		});
+		it('should divide 9 by 5 correctly', function() {
+			expect(calculator.div(9, 5)).toBe(1.8);
+		});
+		it('should divide 3 by 0 returning 0', function() {
+			expect(calculator.div(3, 0)).toBe(0);
+		})
 	});
 });
 	</script>
