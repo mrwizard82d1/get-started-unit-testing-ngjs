@@ -16,11 +16,18 @@ var calculator = {
 };
 
 describe('calculator', function() {
-	it('should add `1 + 1`correctly', function() {
-		expect(calculator.sum(1, 1)).toBe(2);
+	describe('add', function() {
+		it('should add `1 + 1`correctly', function() {
+			expect(calculator.sum(1, 1)).toBe(2);
+		});
+		it('should add `1 + 2` correctly', function() {
+			expect(calculator.sum(1, 2)).toBe(3);
+		});
 	});
-	it('should add `1 + 2` correctly', function() {
-		expect(calculator.sum(1, 2)).toBe(3);
+	describe('subtract', function() {
+		it('should subtract 1 from 2 correctly', function() {
+			expect(calculator.sub(2, 1)).toBe(1);
+		});
 	});
 });
 	</script>
