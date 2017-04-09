@@ -13,8 +13,8 @@ var calculator = {
 	sum: function(a, b) {
 		return a + b;
 	},
-	sub: function(subtrahend, minuend) {
-		return 1;
+	sub: function(minuend, subtrahend) {
+		return minuend - subtrahend;
 	}
 };
 
@@ -30,6 +30,9 @@ describe('calculator', function() {
 	describe('subtract', function() {
 		it('should subtract 1 from 2 correctly', function() {
 			expect(calculator.sub(2, 1)).toBe(1);
+		});
+		it('should subtract 2 from 1 correctly', function() {
+			expect(calculator.sub(1, 2)).toBe(-1);
 		});
 	});
 });
